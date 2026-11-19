@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wilfredo A. Cadiang Jr. | Resume</title>
+	<meta name="robots" content="noindex">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+	<style>
+		:root {
+			--navy: #16065f;
+			--navy-2: #24127a;
+			--lav: #b7abec;
+			--lav-soft: #f1effd;
+			--purple: #9f00ff;
+			--ink: #2b2f45;
+			--text: #4f5570;
+			--muted: #8a90a6;
+			--line: #e5ebf2;
+			--bg: #f9fbfd;
+		}
+		@page {size: A4; margin: 0;}
+		* {box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+		html, body {margin: 0; padding: 0;}
+		body {font-family: 'Poppins', sans-serif; font-size: 8.6pt; line-height: 1.5; color: var(--text); background: #d9dde6;}
+		h1, h2, h3, h4, p, ul {margin: 0; padding: 0;}
+		ul {list-style: none;}
+		a {color: inherit; text-decoration: none;}
+
+		.page {
+			position: relative;
+			width: 210mm;
+			height: 297mm;
+			margin: 10mm auto;
+			background: #fff;
+			overflow: hidden;
+			box-shadow: 0 10px 40px rgba(22,6,95,.15);
+		}
+		@media print {
+			body {background: #fff;}
+			.page {margin: 0; box-shadow: none; page-break-after: always; break-after: page;}
+			.page:last-child {page-break-after: auto; break-after: auto;}
+		}
+
+		/* header */
+		.header {
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			flex-shrink: 0;
+			gap: 7mm;
+			padding: 9mm 14mm;
+			background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, #3a1a9e 100%);
+			color: #d9d3f7;
+		}
+		.header:before {
+			content: "";
+			position: absolute;
+			width: 90mm;
+			height: 90mm;
+			right: -25mm;
+			top: -40mm;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(183,171,236,.35), transparent 70%);
+		}
+		.photo {
+			position: relative;
+			flex: 0 0 31mm;
+			width: 31mm;
+			height: 31mm;
+			border-radius: 50%;
+			border: 1.2mm solid rgba(183,171,236,.55);
+			overflow: hidden;
+		}
+		.photo img {width: 100%; height: 100%; object-fit: cover; object-position: top;}
+		.header-text {position: relative; flex: 1;}
+		.kicker {display: block; font-size: 7pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--lav); margin-bottom: 1.5mm;}
+		.header h1 {font-size: 23pt; font-weight: 700; line-height: 1.1; color: #fff; letter-spacing: -.3px;}
+		.header .title {font-size: 10.5pt; font-weight: 500; color: #fff; margin: 1.5mm 0 4mm;}
+		.contacts {display: flex; flex-wrap: wrap; gap: 1.6mm 5mm;}
+		.contacts span {display: inline-flex; align-items: center; gap: 1.8mm; font-size: 8pt; color: #fff;}
+		.contacts i {display: inline-flex; align-items: center; justify-content: center; width: 5mm; height: 5mm; border-radius: 1.2mm; background: rgba(183,171,236,.22); color: var(--lav); font-size: 7pt;}
+
+		/* layout */
+		.page {display: flex; flex-direction: column;}
+		.cols {flex: 1; display: grid; grid-template-columns: 1fr 66mm;}
+		.main {padding: 8mm 8mm 8mm 14mm;}
+		.side {padding: 8mm 12mm 8mm 7mm; background: var(--bg); border-left: 1px solid var(--line);}
+		.mini-head {display: flex; justify-content: space-between; align-items: center; padding: 5mm 14mm; border-bottom: 1px solid var(--line); font-size: 8pt; color: var(--muted);}
+		.mini-head strong {font-size: 10pt; color: var(--navy);}
+		.mini-head strong span {color: var(--purple);}
+
+		.section {margin-bottom: 6mm;}
+		.section:last-child {margin-bottom: 0;}
+		.section-title {
+			display: flex;
+			align-items: center;
+			gap: 2.5mm;
+			font-size: 10.5pt;
+			font-weight: 600;
+			color: var(--navy);
+			margin-bottom: 3.2mm;
+			padding-bottom: 1.8mm;
+			border-bottom: 1px solid var(--line);
+		}
+		.section-title i {display: inline-flex; align-items: center; justify-content: center; width: 6mm; height: 6mm; border-radius: 1.5mm; background: var(--lav-soft); color: var(--purple); font-size: 8pt;}
+		.summary {font-size: 8.8pt; line-height: 1.65;}
+
+		/* experience */
+		.job {position: relative; padding-left: 5mm; margin-bottom: 3.2mm;}
+		.job:last-child {margin-bottom: 0;}
+		.job:before {content: ""; position: absolute; left: 0; top: 1.4mm; width: 2.2mm; height: 2.2mm; border-radius: 50%; border: .6mm solid var(--lav); background: #fff;}
+		.job.current:before {border-color: var(--purple);}
+		.job:after {content: ""; position: absolute; left: 1.1mm; top: 4.4mm; bottom: -3.2mm; width: 1px; background: var(--line);}
+		.job:last-child:after {display: none;}
+		.job-top {display: flex; justify-content: space-between; align-items: baseline; gap: 3mm;}
+		.job h3 {font-size: 9.6pt; font-weight: 600; color: var(--navy); line-height: 1.3;}
+		.when {flex: 0 0 auto; font-size: 7.6pt; font-weight: 600; color: var(--navy); white-space: nowrap;}
+		.org {font-size: 8.4pt; font-weight: 500; color: var(--purple); margin: .3mm 0 1.2mm;}
+		.org span {color: var(--muted); font-weight: 400;}
+		.list li {position: relative; padding-left: 3.6mm; margin-bottom: .7mm; color: var(--ink);}
+		.list li:before {content: "\f00c"; font-family: FontAwesome; position: absolute; left: 0; top: .2mm; font-size: 6pt; color: var(--purple);}
+
+		/* tags */
+		.tags {display: flex; flex-wrap: wrap; gap: 1.2mm;}
+		.tags span {padding: .6mm 2mm; border-radius: 1mm; background: var(--lav-soft); color: var(--navy); font-size: 7.2pt; font-weight: 500;}
+		.side .tags span {background: #fff; border: 1px solid #e2ddf8;}
+		.skill-group {margin-bottom: 3.4mm;}
+		.skill-group h4 {font-size: 8pt; font-weight: 600; color: var(--ink); margin-bottom: 1.4mm;}
+
+		/* stats */
+		.stats {display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm; margin-bottom: 6mm;}
+		.stats div {padding: 3mm 1mm; text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 2mm;}
+		.stats strong {display: block; font-size: 14pt; font-weight: 700; line-height: 1; color: var(--navy); margin-bottom: 1mm;}
+		.stats span {display: block; font-size: 6.4pt; line-height: 1.3; color: var(--muted); text-transform: uppercase; letter-spacing: .3px;}
+
+		/* education */
+		.edu {margin-bottom: 3.4mm;}
+		.edu:last-child {margin-bottom: 0;}
+		.edu .date {display: inline-block; padding: .3mm 2mm; border-radius: 3mm; background: var(--lav-soft); color: var(--navy); font-size: 7pt; font-weight: 500; margin-bottom: 1mm;}
+		.edu h4 {font-size: 8.6pt; font-weight: 600; color: var(--navy); line-height: 1.35;}
+		.edu p {font-size: 7.8pt; color: var(--purple); font-weight: 500;}
+		.edu small {display: block; font-size: 7.4pt; color: var(--muted);}
+		.edu-row {display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm;}
+		.edu-box {margin: 0; padding: 3mm; border: 1px solid var(--line); border-radius: 2mm; border-top: .8mm solid var(--lav);}
+
+		/* projects */
+		.tier {display: flex; align-items: baseline; gap: 2.5mm; margin: 0 0 2.6mm;}
+		.tier b {font-size: 13pt; font-weight: 700; color: #e0daf8; line-height: 1;}
+		.tier h4 {font-size: 9pt; font-weight: 600; color: var(--navy);}
+		.tier span {font-size: 7.6pt; color: var(--muted);}
+		.tier-block {margin-bottom: 4mm;}
+		.tier-block:last-child {margin-bottom: 0;}
+		.proj {padding: 2.4mm 3.2mm; border: 1px solid var(--line); border-radius: 2mm; margin-bottom: 2mm; break-inside: avoid;}
+		.proj:last-child {margin-bottom: 0;}
+		.proj-top {display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; margin-bottom: .6mm;}
+		.proj h5 {margin: 0; font-size: 9pt; font-weight: 600; color: var(--navy);}
+		.proj .url {font-size: 7.4pt; color: var(--purple); white-space: nowrap;}
+		.proj .role {display: inline-block; padding: .2mm 1.8mm; border-radius: 3mm; background: var(--navy); color: #fff; font-size: 6.4pt; font-weight: 500; letter-spacing: .3px; text-transform: uppercase; margin-bottom: 1mm;}
+		.proj .role em {font-style: normal; color: var(--lav);}
+		.proj p {font-size: 8pt; line-height: 1.5; color: var(--ink);}
+		.proj-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 2.4mm;}
+		.proj-grid .proj {margin-bottom: 0;}
+
+		.ref {font-size: 8.4pt; color: var(--ink);}
+		.ref em {color: var(--muted);}
+		.foot {position: absolute; left: 14mm; right: 12mm; bottom: 6mm; display: flex; justify-content: space-between; font-size: 7pt; color: var(--muted);}
+	</style>
+</head>
+<body>
+
+	<!-- PAGE 1 -->
+	<div class="page">
+		<header class="header">
+			<div class="photo"><img src="/assets/images/about/profile_image.jpg" alt="Wilfredo A. Cadiang Jr."></div>
+			<div class="header-text">
+				<span class="kicker">Resume</span>
+				<h1>Wilfredo A. Cadiang Jr.</h1>
+				<p class="title">Full Stack Web Developer &amp; SEO Specialist</p>
+				<div class="contacts">
+					<span><i class="fa fa-envelope" aria-hidden="true"></i>wil.cadiang@gmail.com</span>
+					<span><i class="fa fa-phone" aria-hidden="true"></i>+63 966 874 7432</span>
+					<span><i class="fa fa-globe" aria-hidden="true"></i>wildeveloper.github.io</span>
+					<span><i class="fa fa-map-marker" aria-hidden="true"></i>Concepcion, Tarlac, Philippines</span>
+				</div>
+			</div>
+		</header>
+
+		<div class="cols">
+			<div class="main">
+				<div class="section">
+					<h2 class="section-title"><i class="fa fa-user" aria-hidden="true"></i>Profile</h2>
+					<p class="summary">
+						Full stack web developer with 7+ years of experience building secure Laravel web applications and fast WordPress websites, then helping them rank and convert through technical SEO, GA4 and Tag Manager tracking, and local search. Delivered work for brands in Australia, Canada and Asia.
+					</p>
+				</div>
+
+				<div class="section">
+					<h2 class="section-title"><i class="fa fa-briefcase" aria-hidden="true"></i>Experience</h2>
+
+					<div class="job current">
+						<div class="job-top"><h3>Digital Marketing &amp; Web Development Specialist</h3><span class="when">Jun 2026 &ndash; Nov 2026</span></div>
+						<p class="org">The Media Park <span>&middot; Newcastle, NSW, Australia</span></p>
+						<ul class="list">
+							<li>Designed and developed websites for The Media Park, Longhorn Barndominiums and the No.1 Home Improvements rebrand in WordPress and Elementor</li>
+							<li>Delivered six-month SEO strategies: technical audits, keyword research, on-page optimisation and monthly reports</li>
+							<li>Set up GA4 and Tag Manager lead tracking, managed Google Business Profiles and maintained client websites</li>
+						</ul>
+					</div>
+
+					<div class="job">
+						<div class="job-top"><h3>Senior Full Stack Web Developer</h3><span class="when">Jan 2022 &ndash; 2026</span></div>
+						<p class="org">Greatway Financial Inc. <span>&middot; Alberta, Canada</span></p>
+						<ul class="list">
+							<li>Built and maintained Phoenix and My Greatway Office, the company's Laravel web applications</li>
+							<li>Worked across the full stack: project setup, back-end, front-end integration, database design and testing</li>
+							<li>Kept applications secure and optimised for performance</li>
+						</ul>
+					</div>
+
+					<div class="job">
+						<div class="job-top"><h3>Web Developer</h3><span class="when">Apr 2019 &ndash; Jun 2022</span></div>
+						<p class="org">PTW Philippines Private Co. Ltd. <span>&middot; Angeles City, Pampanga</span></p>
+						<ul class="list">
+							<li>Developed the PTW Asia website (ptwsingapore.com), including its SEO and English and Japanese versions</li>
+							<li>Built layouts and interfaces, integrated back-end services and databases, wrote documentation, and maintained and scaled the site</li>
+						</ul>
+					</div>
+
+					<div class="job">
+						<div class="job-top"><h3>Teacher II</h3><span class="when">Oct 2017 &ndash; Apr 2019</span></div>
+						<p class="org">Bataan National High School &ndash; SHS <span>&middot; Balanga City, Bataan</span></p>
+						<ul class="list">
+							<li>Taught ICT subjects: Computer Systems Servicing, Media and Information Literacy, and Empowerment Technologies</li>
+						</ul>
+					</div>
+
+					<div class="job">
+						<div class="job-top"><h3>Instructor II</h3><span class="when">Jun 2014 &ndash; Apr 2017</span></div>
+						<p class="org">Colegio de San Juan de Letran &ndash; Bataan <span>&middot; Abucay, Bataan</span></p>
+						<ul class="list">
+							<li>Taught programming (Java, VB.NET, C#.NET, Android, PHP), networking, databases and multimedia editing</li>
+						</ul>
+					</div>
+
+					<div class="job">
+						<div class="job-top"><h3>Laboratory Custodian</h3><span class="when">Jun 2013 &ndash; May 2014</span></div>
+						<p class="org">STI College Tarlac <span>&middot; Tarlac City, Tarlac</span></p>
+						<ul class="list">
+							<li>Ran computer lab operations and inventory, and taught programming and networking courses</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<aside class="side">
+				<div class="stats">
+					<div><strong>7+</strong><span>Years in web dev</span></div>
+					<div><strong>11</strong><span>Live projects</span></div>
+					<div><strong>3</strong><span>Countries</span></div>
+				</div>
+
+				<div class="section">
+					<h2 class="section-title"><i class="fa fa-code" aria-hidden="true"></i>Skills</h2>
+					<div class="skill-group">
+						<h4>Back-end</h4>
+						<div class="tags"><span>PHP</span><span>Laravel</span><span>Livewire</span><span>MySQL</span><span>MS SQL Server</span><span>C#</span><span>VB.NET</span></div>
+					</div>
+					<div class="skill-group">
+						<h4>Front-end</h4>
+						<div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>jQuery</span><span>Bootstrap</span><span>React</span><span>Vue</span><span>Angular</span></div>
+					</div>
+					<div class="skill-group">
+						<h4>CMS &amp; E-commerce</h4>
+						<div class="tags"><span>WordPress</span><span>Elementor Pro</span><span>Astra</span><span>WooCommerce</span><span>All in One SEO</span></div>
+					</div>
+					<div class="skill-group">
+						<h4>SEO &amp; Analytics</h4>
+						<div class="tags"><span>Technical SEO</span><span>Keyword Research</span><span>On-page SEO</span><span>Local SEO</span><span>GA4</span><span>Tag Manager</span><span>Search Console</span><span>Business Profile</span><span>Core Web Vitals</span></div>
+					</div>
+					<div class="skill-group">
+						<h4>Tools &amp; Design</h4>
+						<div class="tags"><span>Git</span><span>Photoshop</span><span>After Effects</span><span>Responsive Design</span></div>
+					</div>
+				</div>
+
+			</aside>
+		</div>
+	</div>
+
+	<!-- PAGE 2 -->
+	<div class="page page-2">
+		<div class="mini-head">
+			<strong>Wilfredo A. Cadiang Jr<span>.</span></strong>
+			<span>Full Stack Web Developer &amp; SEO Specialist &middot; wildeveloper.github.io</span>
+		</div>
+
+		<div class="cols">
+			<div class="main">
+				<div class="section">
+					<h2 class="section-title"><i class="fa fa-folder-open" aria-hidden="true"></i>Selected Projects</h2>
+
+					<div class="tier-block">
+						<div class="tier"><b>01</b><h4>Web Applications</h4><span>Greatway Financial Inc.</span></div>
+						<div class="proj">
+							<div class="proj-top"><h5>Phoenix</h5><span class="url">phoenix.greatwayfinancial.com</span></div>
+							<span class="role">Full Stack Development</span>
+							<p>Secure, login-protected Laravel web application supporting Greatway Financial's day-to-day business. Authentication, database design, testing and performance tuning.</p>
+						</div>
+						<div class="proj">
+							<div class="proj-top"><h5>My Greatway Office</h5><span class="url">mygreatwayoffice.greatwayfinancial.com</span></div>
+							<span class="role">Full Stack Development</span>
+							<p>Online office portal where Greatway's advisors sign up, get onboarded and access their tools. Built with Laravel and Livewire, with account sign-up, welcome emails and secure login.</p>
+						</div>
+					</div>
+
+					<div class="tier-block">
+						<div class="tier"><b>02</b><h4>Designed &amp; Developed</h4><span>Websites built from the ground up</span></div>
+						<div class="proj">
+							<div class="proj-top"><h5>The Media Park</h5><span class="url">themediapark.com.au</span></div>
+							<span class="role">Design &middot; Development &middot; SEO <em>&middot; The Media Park</em></span>
+							<p>New website for a Newcastle marketing agency, built in WordPress and Elementor and launched with a pre-launch SEO checklist, domain swap plan and six-month keyword roadmap.</p>
+						</div>
+						<div class="proj">
+							<div class="proj-top"><h5>Longhorn Barndominiums</h5><span class="url">longhornbarndominiums.com.au</span></div>
+							<span class="role">Design &middot; Development &middot; SEO <em>&middot; The Media Park</em></span>
+							<p>Premium WordPress site for a luxury home builder showcasing 18 designs, followed by a builder-intent SEO program across 20 service regions in QLD, NSW and VIC, with lead tracking.</p>
+						</div>
+						<div class="proj">
+							<div class="proj-top"><h5>PTW Asia</h5><span class="url">ptwsingapore.com</span></div>
+							<span class="role">Development &middot; SEO <em>&middot; PTW Philippines</em></span>
+							<p>Company website for a semiconductor equipment supplier: tools for sale, spare parts, brochures, careers, video showcase, English and Japanese versions, and on-page SEO.</p>
+						</div>
+						<div class="proj">
+							<div class="proj-top"><h5>No.1 Home Improvements</h5><span class="url">Launching soon</span></div>
+							<span class="role">Design &middot; Development <em>&middot; The Media Park</em></span>
+							<p>Full rebuild for the No.1 Sheds rebrand in Elementor Pro on Astra: new header, footer and navigation, product range pages, responsive spacing system and an SEO migration plan.</p>
+						</div>
+					</div>
+				</div>
+				<div class="section">
+					<h2 class="section-title"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Education</h2>
+					<div class="edu-row">
+					<div class="edu edu-box">
+						<span class="date">2014 &ndash; In progress</span>
+						<h4>Master in Information Technology</h4>
+						<p>Tarlac State University</p>
+						<small>30 units completed &middot; Tarlac City</small>
+					</div>
+					<div class="edu edu-box">
+						<span class="date">2016 &ndash; 2017</span>
+						<h4>Certificate in Professional Education</h4>
+						<p>Colegio de San Juan de Letran &ndash; Bataan</p>
+						<small>Abucay, Bataan</small>
+					</div>
+					<div class="edu edu-box">
+						<span class="date">2009 &ndash; Apr 2013</span>
+						<h4>BS in Information Technology</h4>
+						<p>STI College Tarlac</p>
+						<small>Academic Excellence award &middot; Tarlac City</small>
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<aside class="side">
+				<div class="section">
+					<div class="tier-block">
+						<div class="tier"><b>03</b><h4>Website Updates &amp; SEO</h4></div>
+						<div class="proj">
+							<div class="proj-top"><h5>Parravans Newcastle</h5></div>
+							<p>GA4 + GTM lead tracking, site speed tuning, redirects and Google Business Profile optimisation for a caravan dealership.</p>
+						</div>
+						<div class="proj">
+							<div class="proj-top"><h5>Charlie Lund &ndash; The Agency</h5></div>
+							<p>Backlink clean-up, enquiry tracking and monthly SEO reporting for a Hunter Valley real estate agency.</p>
+						</div>
+						<div class="proj">
+							<div class="proj-top"><h5>Conveyancing Simplified</h5></div>
+							<p>Website and Business Profile audit, local keyword mapping and a six-month SEO roadmap.</p>
+						</div>
+					</div>
+
+					<div class="tier-block">
+						<div class="tier"><b>04</b><h4>Website Maintenance</h4></div>
+						<div class="proj">
+							<div class="proj-top"><h5>Lakeview Blinds</h5></div>
+							<p>Content, promotion and page updates, plus routine site updates.</p>
+						</div>
+						<div class="proj">
+							<div class="proj-top"><h5>My Three Beans</h5></div>
+							<p>Product and page updates and WordPress / WooCommerce maintenance.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="section">
+					<h2 class="section-title"><i class="fa fa-handshake-o" aria-hidden="true"></i>References</h2>
+					<p class="ref"><em>Available upon request.</em></p>
+				</div>
+			</aside>
+		</div>
+
+	</div>
+
+</body>
+</html>
